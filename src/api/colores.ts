@@ -27,7 +27,7 @@ app.post('services/data/colores.json', (req: Request, res: Response) => {
 
 // Endpoint DELETE para eliminar un color por ID
 app.delete('services/data/colores.json:id', (req: Request, res: Response) => {
-  const { id } = req.params; // obtener el ID del color de los parámetros de la URL
+  const { id } = req.params; 
   const index = colors.findIndex(color => color.id === Number(id)); 
   if (index === -1) {
     res.status(404).json({ error: 'Color no encontrado' }); 
@@ -40,7 +40,7 @@ app.delete('services/data/colores.json:id', (req: Request, res: Response) => {
 // Endpoint PUT para actualizar un color por ID
 
 app.put('services/data/colores.json:id', (req: Request, res: Response) => {
-  const { id } = req.params; // obtener el ID del color de los parámetros de la URL
+  const { id } = req.params; 
   const { descripcion } = req.body; 
   if (!descripcion) {
     res.status(400).json({ error: 'Falta la descripción del color' }); 
@@ -48,7 +48,7 @@ app.put('services/data/colores.json:id', (req: Request, res: Response) => {
   }
   const index = colors.findIndex(color => color.id === Number(id)); 
   colors[index].descripcion = descripcion; 
-  res.status(204).send(); // enviar una respuesta con código de estado 204 (No Content)
+  res.status(204).send(); 
   return;
 });
 app.listen(PORT, () => {
